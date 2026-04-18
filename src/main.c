@@ -3,6 +3,7 @@
 #include "graph.h"
 #include "union_find.h"
 #include "sorting.h"
+#include "traversal.h"
 
 int main(void)
 {
@@ -38,6 +39,18 @@ int main(void)
     printf("\n=== Roads Sorted by Weight — MergeSort ===\n");
     sort_edges_merge(copy2, g->num_roads);
     print_edges(g, copy2, g->num_roads);
+    printf("\n");
+
+    /* --- Section 4 demo: DFS reachability + BFS fewest stops --- */
+    printf("=== DFS: Are All Locations Reachable from Library? ===\n");
+    dfs_print_reachability(g, 0);
+    printf("\n");
+
+    printf("=== BFS: Fewest Stops ===\n");
+    printf("  Library -> Hostel:\n");
+    bfs_fewest_stops(g, 0, 7);
+    printf("\n  Main_Gate -> Sports_Complex:\n");
+    bfs_fewest_stops(g, 2, 5);
     printf("\n");
 
     free_graph(g);
