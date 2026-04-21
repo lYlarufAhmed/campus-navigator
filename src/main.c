@@ -5,6 +5,7 @@
 #include "sorting.h"
 #include "traversal.h"
 #include "dijkstra.h"
+#include "mst.h"
 
 int main(void)
 {
@@ -40,6 +41,11 @@ int main(void)
     printf("\n=== Roads Sorted by Weight — MergeSort ===\n");
     sort_edges_merge(copy2, g->num_roads);
     print_edges(g, copy2, g->num_roads);
+    printf("\n");
+
+    /* --- Section 6 demo: Kruskal's MST --- */
+    printf("=== Kruskal's MST: Minimum Cost Road Network ===\n");
+    kruskal_print(g);
     printf("\n");
 
     /* --- Section 5 demo: Dijkstra shortest weighted path --- */
