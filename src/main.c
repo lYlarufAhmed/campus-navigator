@@ -4,6 +4,7 @@
 #include "union_find.h"
 #include "sorting.h"
 #include "traversal.h"
+#include "dijkstra.h"
 
 int main(void)
 {
@@ -39,6 +40,16 @@ int main(void)
     printf("\n=== Roads Sorted by Weight — MergeSort ===\n");
     sort_edges_merge(copy2, g->num_roads);
     print_edges(g, copy2, g->num_roads);
+    printf("\n");
+
+    /* --- Section 5 demo: Dijkstra shortest weighted path --- */
+    printf("=== Dijkstra: Shortest Weighted Path ===\n");
+    dijkstra_path(g, 0, 7);   /* Library -> Hostel      */
+    printf("\n");
+    dijkstra_path(g, 2, 4);   /* Main_Gate -> Science_Block */
+    printf("\n");
+    printf("=== Dijkstra: All Distances from Library ===\n");
+    dijkstra_print_all(g, 0);
     printf("\n");
 
     /* --- Section 4 demo: DFS reachability + BFS fewest stops --- */
