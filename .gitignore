@@ -1,2 +1,5 @@
 campus_navigator
 *.o
+.DS_Store
+campus_navigator.dSYM/Contents/Info.plist
+campus_navigator.dSYM/Contents/Resources/Relocations/aarch64/campus_navigator.yml

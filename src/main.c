@@ -175,7 +175,11 @@ int main(void)
         print_menu();
 
         int choice;
-        if (scanf("%d", &choice) != 1) { clear_stdin(); continue; }
+        int result = scanf("%d", &choice);
+        if (result == EOF){
+            running = 0;
+            break;
+        } else if ( result != 1) { clear_stdin(); continue; }
         clear_stdin();
 
         switch (choice) {
