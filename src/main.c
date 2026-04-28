@@ -36,10 +36,13 @@ static int pick_location(const Graph *g, const char *prompt)
     int id;
     for (;;) {
         printf("  %s (0-%d, -1 to cancel): ", prompt, g->num_locations - 1);
-        if (scanf("%d", &id) != 1) { clear_stdin(); continue; }
+        int result = scanf("%d", &id);
+        if (result == EOF) { return -1; }
+        else if ( result != 1) { clear_stdin(); continue; }
         clear_stdin();
-        if (id == -1) return -1;
+        // if (id == -1) return -1;
         if (id >= 0 && id < g->num_locations) return id;
+        else return -1;
         printf("  Invalid id — try again.\n");
     }
 }
